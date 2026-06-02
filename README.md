@@ -6,7 +6,7 @@ The player moves through a small morning routine: finding glasses, making tea, t
 
 [Play the prototype](https://siamakenna.github.io/soft-recall-game/)
 
-https://github.com/YOUR-USERNAME/soft-recall-game/raw/main/media/soft-recall-trailer.mp4
+https://github.com/siamakenna/soft-recall-game/raw/main/media/soft-recall-trailer.mp4
 
 ## Prototype Focus
 
