@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Soft Recall</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell" id="app">
+      <section class="title-screen" id="titleScreen" aria-labelledby="gameTitle">
+        <div class="grain"></div>
+        <p class="eyebrow">a quiet memory prototype</p>
+        <h1 id="gameTitle">Soft Recall</h1>
+        <p class="subtitle">A point-and-click morning routine where familiar things keep becoming almost familiar.</p>
+        <div class="title-actions">
+          <button class="primary" id="startGame">Begin Morning</button>
+          <button class="ghost" id="openSettings">Settings</button>
+        </div>
+      </section>
+
+      <section class="settings-panel hidden" id="settingsPanel" aria-label="Accessibility settings">
+        <div class="panel-header">
+          <h2>Settings</h2>
+          <button class="icon-button" id="closeSettings" aria-label="Close settings">x</button>
+        </div>
+        <label>
+          <input type="checkbox" id="reducedMotion">
+          Reduce visual drift
+        </label>
+        <label>
+          <input type="checkbox" id="plainLanguage">
+          Plain language reflection cards
+        </label>
+        <label>
+          <input type="checkbox" id="largeText">
+          Larger text
+        </label>
+        <label>
+          <input type="checkbox" id="highContrast">
+          Higher contrast
+        </label>
+      </section>
+
+      <section class="game-screen hidden" id="gameScreen" aria-label="Soft Recall game">
+        <aside class="status" aria-label="Morning progress">
+          <p class="time">7:13 AM</p>
+          <h2>The Morning Loop</h2>
+          <p id="currentPrompt">The apartment is quiet. Find your glasses.</p>
+          <ol id="taskList" class="task-list"></ol>
+          <div class="meter-row">
+            <span>Recall</span>
+            <div class="meter"><span id="recallMeter"></span></div>
+          </div>
+          <div class="meter-row">
+            <span>Support</span>
+            <div class="meter support"><span id="supportMeter"></span></div>
+          </div>
+        </aside>
+
+        <section class="room-wrap">
+          <div class="room" id="room" aria-label="Overhead apartment scene">
+            <div class="floor-lines"></div>
+            <button class="object bed" data-object="glasses"><span>glasses</span></button>
+            <button class="object kettle" data-object="tea"><span>kettle</span></button>
+            <button class="object bottle" data-object="medication"><span>medication</span></button>
+            <button class="object photo" data-object="photo"><span>photo</span></button>
+            <button class="object phone" data-object="phone"><span>phone</span></button>
+            <button class="object door" data-object="door"><span>door</span></button>
+            <button class="object note" data-object="note"><span>note</span></button>
+            <div class="player" id="player" aria-hidden="true"></div>
+          </div>
+          <div class="caption" id="caption">Click objects in the room. Labels may change as recall softens.</div>
+        </section>
+
+        <aside class="journal" aria-label="Interaction journal">
+          <h2>Journal</h2>
+          <div id="journalLog" class="journal-log"></div>
+          <button class="ghost wide" id="supportCue">Place a support cue</button>
+          <button class="ghost wide" id="learnMore">Reflection card</button>
+        </aside>
+      </section>
+
+      <section class="reflection hidden" id="reflection" aria-live="polite">
+        <div class="reflection-card">
+          <p class="eyebrow">reflection</p>
+          <h2 id="reflectionTitle">What this represents</h2>
+          <p id="reflectionBody"></p>
+          <button class="primary" id="closeReflection">Return</button>
+        </div>
+      </section>
+
+      <section class="ending hidden" id="ending">
+        <div class="ending-card">
+          <p class="eyebrow">morning complete</p>
+          <h2>Care is a kind of remembering.</h2>
+          <p>You did not fix the morning. You made it softer: labels, pauses, a familiar voice, and room for dignity.</p>
+          <button class="primary" id="restart">Play Again</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
