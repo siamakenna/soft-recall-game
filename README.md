@@ -8,7 +8,7 @@ Players move through a small apartment, gather essentials, reconstruct a photo m
 
 This project is built with plain HTML, CSS, and JavaScript, so it can run directly on GitHub Pages.
 
-Open `index.html` locally, or publish the repository through GitHub Pages.
+Open `index.html` locally, or launch: https://siamakenna.github.io/soft-recall-game/.
 
 ## Features
 
