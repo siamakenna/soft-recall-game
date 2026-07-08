@@ -61,6 +61,19 @@ Design checks for future Codex passes:
 - Do not revert modals into generic white browser dialogs.
 - Do not remove accessibility controls or reduced-motion/readability protections.
 
+## First-Person Scene Pass
+
+The playable room panel now uses first-person point-and-click scene composition instead of an overhead map-like room stage. The floor plan remains a small navigation object in the side panel, while the main scene shows the player standing inside the apartment.
+
+Each room is built from lightweight CSS-generated plates:
+
+- Wall, floor, foreground, midground, background, light, and shadow layers
+- Room-specific surfaces such as bed edge, sink counter, kitchen counter, coffee table, hallway runner, and front door
+- Embedded visible objects such as glasses, phone, kettle, photo, keys, tote, sneakers, and appointment card
+- Small glowing markers placed over objects rather than replacing them
+
+Review criterion: if the first gameplay screen feels like a map, board, dollhouse, or overhead diagram, the scene pass has failed. It should read as a composed watercolor first-person indie-game room.
+
 ## Gameplay
 
 Move through five rooms:
