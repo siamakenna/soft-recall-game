@@ -708,6 +708,116 @@ const roomDetailLayers = {
   ]
 };
 
+const firstPersonScenes = {
+  bedroom: {
+    parts: [
+      { cls: "scene-window bedroom-window", x: 67, y: 8, w: 20, h: 31 },
+      { cls: "scene-poster bedroom-poster", x: 40, y: 9, w: 13, h: 23 },
+      { cls: "scene-mirror bedroom-mirror", x: 7, y: 17, w: 16, h: 42 },
+      { cls: "scene-shelf bedroom-shelf", x: 57, y: 29, w: 27, h: 8 },
+      { cls: "scene-table bedside-table", x: 46, y: 49, w: 29, h: 25 },
+      { cls: "scene-bed quilt-foreground", x: -6, y: 66, w: 58, h: 34 },
+      { cls: "scene-object object-bedside_glasses", x: 55, y: 57, w: 11, h: 8 },
+      { cls: "scene-object object-unread_texts", x: 64, y: 55, w: 12, h: 12 },
+      { cls: "scene-object object-bedroom_note", x: 50, y: 65, w: 15, h: 9 },
+      { cls: "scene-object object-voice_memo", x: 72, y: 42, w: 9, h: 14 },
+      { cls: "scene-object object-laptop", x: 71, y: 70, w: 22, h: 13 }
+    ]
+  },
+  bathroom: {
+    parts: [
+      { cls: "scene-tile bathroom-tile", x: 0, y: 0, w: 100, h: 70 },
+      { cls: "scene-mirror bathroom-mirror", x: 27, y: 10, w: 37, h: 43 },
+      { cls: "bathroom-light", x: 36, y: 4, w: 20, h: 6 },
+      { cls: "scene-cabinet bathroom-cabinet", x: 72, y: 15, w: 17, h: 31 },
+      { cls: "scene-towel bathroom-towel", x: 70, y: 53, w: 20, h: 12 },
+      { cls: "scene-counter bathroom-counter", x: 8, y: 62, w: 84, h: 27 },
+      { cls: "scene-sink bathroom-sink", x: 35, y: 66, w: 29, h: 15 },
+      { cls: "scene-object object-pill_organizer", x: 61, y: 61, w: 17, h: 8 },
+      { cls: "scene-object object-bathroom_cabinet", x: 77, y: 25, w: 9, h: 17 },
+      { cls: "scene-object object-mirror", x: 46, y: 31, w: 16, h: 22 }
+    ]
+  },
+  kitchen: {
+    parts: [
+      { cls: "scene-window kitchen-window", x: 60, y: 8, w: 24, h: 30 },
+      { cls: "scene-backsplash kitchen-backsplash", x: 0, y: 34, w: 100, h: 22 },
+      { cls: "scene-calendar kitchen-calendar", x: 12, y: 14, w: 16, h: 22 },
+      { cls: "scene-shelf kitchen-shelf", x: 29, y: 24, w: 25, h: 8 },
+      { cls: "scene-counter kitchen-counter", x: 2, y: 56, w: 96, h: 34 },
+      { cls: "scene-object object-mug", x: 27, y: 70, w: 12, h: 12 },
+      { cls: "scene-object object-tea_tin", x: 42, y: 62, w: 12, h: 14 },
+      { cls: "scene-object object-kettle", x: 65, y: 60, w: 19, h: 20 },
+      { cls: "scene-object object-medication_bottle", x: 79, y: 55, w: 8, h: 17 },
+      { cls: "scene-object object-plant_shelf", x: 33, y: 30, w: 15, h: 17 },
+      { cls: "scene-object object-calendar_alert", x: 86, y: 37, w: 10, h: 12 }
+    ]
+  },
+  living: {
+    parts: [
+      { cls: "scene-window living-window", x: 13, y: 10, w: 24, h: 28 },
+      { cls: "scene-art living-art", x: 69, y: 9, w: 20, h: 24 },
+      { cls: "scene-shelf living-shelf", x: 64, y: 38, w: 28, h: 9 },
+      { cls: "scene-couch living-couch", x: 19, y: 43, w: 58, h: 26 },
+      { cls: "scene-table coffee-table", x: 23, y: 65, w: 54, h: 22 },
+      { cls: "scene-object object-photo_frame", x: 40, y: 60, w: 13, h: 13 },
+      { cls: "scene-object object-postcard", x: 29, y: 70, w: 17, h: 9 },
+      { cls: "scene-object object-phone", x: 61, y: 68, w: 11, h: 13 },
+      { cls: "scene-object object-wallet", x: 74, y: 57, w: 12, h: 8 },
+      { cls: "scene-object object-playlist", x: 53, y: 74, w: 13, h: 8 },
+      { cls: "scene-object object-creative_project", x: 79, y: 68, w: 17, h: 12 }
+    ]
+  },
+  hallway: {
+    parts: [
+      { cls: "scene-door hallway-door", x: 60, y: 8, w: 26, h: 62 },
+      { cls: "scene-door-light hallway-door-light", x: 82, y: 8, w: 8, h: 64 },
+      { cls: "scene-wall-note hallway-note-wall", x: 41, y: 18, w: 15, h: 22 },
+      { cls: "scene-hooks hallway-hooks", x: 20, y: 26, w: 23, h: 14 },
+      { cls: "scene-runner hallway-runner", x: 23, y: 56, w: 52, h: 41 },
+      { cls: "scene-object object-keys", x: 30, y: 40, w: 12, h: 10 },
+      { cls: "scene-object object-appointment_card", x: 48, y: 29, w: 14, h: 11 },
+      { cls: "scene-object object-hall_note", x: 49, y: 41, w: 16, h: 11 },
+      { cls: "scene-object object-transit_card", x: 42, y: 73, w: 12, h: 8 },
+      { cls: "scene-object object-sneakers", x: 27, y: 79, w: 19, h: 10 },
+      { cls: "scene-object object-tote_bag", x: 72, y: 65, w: 18, h: 21 },
+      { cls: "scene-object object-front_door", x: 73, y: 45, w: 16, h: 33 }
+    ]
+  }
+};
+
+const firstPersonHotspots = {
+  bedside_glasses: [56, 56],
+  bedroom_window: [76, 24],
+  bedroom_note: [51, 63],
+  unread_texts: [65, 54],
+  voice_memo: [73, 40],
+  laptop: [73, 68],
+  mirror: [46, 32],
+  pill_organizer: [63, 60],
+  bathroom_cabinet: [80, 27],
+  mug: [31, 68],
+  tea_tin: [46, 60],
+  kettle: [70, 57],
+  medication_bottle: [81, 52],
+  calendar: [20, 24],
+  plant_shelf: [40, 29],
+  calendar_alert: [89, 38],
+  photo_frame: [43, 59],
+  postcard: [33, 69],
+  phone: [64, 66],
+  wallet: [77, 56],
+  playlist: [56, 73],
+  creative_project: [82, 67],
+  keys: [32, 39],
+  appointment_card: [50, 29],
+  transit_card: [43, 72],
+  sneakers: [30, 78],
+  tote_bag: [74, 64],
+  hall_note: [51, 41],
+  front_door: [74, 45]
+};
+
 const phoneChoices = [
   {
     id: "ask_help",
@@ -1215,7 +1325,7 @@ function renderRoom() {
   els.symptomSummary.innerHTML = renderSymptomSummary();
   els.roomStage.dataset.room = state.currentRoom;
   els.roomStage.dataset.clarity = clarity;
-  els.decorLayer.innerHTML = (roomDetailLayers[state.currentRoom] || []).map(renderDecorDetail).join("");
+  els.decorLayer.innerHTML = renderFirstPersonScene(state.currentRoom);
   els.supportLayer.innerHTML = state.supportPlaced
     .filter((id) => supportTargets.find((target) => target.id === id)?.room === state.currentRoom)
     .map((id) => `<span class="support-note support-${id}">${supportTargets.find((target) => target.id === id).label} cue</span>`)
@@ -1255,14 +1365,40 @@ function renderDecorDetail(detail) {
   `;
 }
 
+function renderFirstPersonScene(roomId) {
+  const scene = firstPersonScenes[roomId] || { parts: [] };
+  const parts = scene.parts.map((part) => `
+    <span
+      class="scene-part ${part.cls}"
+      style="left:${part.x}%;top:${part.y}%;width:${part.w}%;height:${part.h}%;"
+      aria-hidden="true"
+    ></span>
+  `).join("");
+  return `
+    <div class="first-person-scene scene-${roomId}" aria-hidden="true">
+      <span class="scene-background"></span>
+      <span class="scene-wall"></span>
+      <span class="scene-back-wall"></span>
+      <span class="scene-floor"></span>
+      <span class="scene-floor-lines"></span>
+      <span class="scene-midground"></span>
+      <span class="scene-foreground"></span>
+      <span class="scene-light"></span>
+      <span class="scene-shadow"></span>
+      ${parts}
+    </div>
+  `;
+}
+
 function renderHotspot(object, clarity) {
   const supported = state.supportPlaced.some((target) => object.id.includes(target));
   const labelState = supported ? "supported" : clarity;
   const label = objectLabel(object, labelState);
   const done = state.collectedObjects.includes(object.id) || isObjectComplete(object);
   const helpful = isHelpfulObject(object);
+  const [x, y] = firstPersonHotspots[object.id] || [object.x, object.y];
   return `
-    <button class="hotspot ${done ? "done" : ""} ${helpful ? "helpful" : ""}" style="left:${object.x}%;top:${object.y}%;" data-object="${object.id}" type="button">
+    <button class="hotspot hotspot-${object.id} ${done ? "done" : ""} ${helpful ? "helpful" : ""}" style="left:${x}%;top:${y}%;" data-object="${object.id}" type="button">
       <span>${label}</span>
     </button>
   `;

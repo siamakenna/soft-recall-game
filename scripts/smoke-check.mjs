@@ -131,9 +131,24 @@ for (const token of [
 for (const token of [
   "whole-game-watercolor",
   "research-ready-surfaces",
-  "full-surface-art-direction"
+  "full-surface-art-direction",
+  "first-person-stage"
 ]) {
   if (!html.includes(token)) throw new Error(`Missing full-surface HTML token: ${token}`);
+}
+
+for (const token of [
+  "firstPersonScenes",
+  "firstPersonHotspots",
+  "renderFirstPersonScene",
+  "scene-background",
+  "scene-wall",
+  "scene-floor",
+  "scene-object",
+  "object-bedside_glasses",
+  "object-front_door"
+]) {
+  if (!js.includes(token)) throw new Error(`Missing first-person scene game token: ${token}`);
 }
 
 for (const token of [
@@ -144,13 +159,23 @@ for (const token of [
   "ending-reflection",
   "support-card",
   "title-card::before",
-  "modal-card::before"
+  "modal-card::before",
+  "First-person point-and-click scene conversion",
+  "first-person-scene",
+  "scene-wall",
+  "scene-floor",
+  "scene-counter",
+  "scene-door",
+  "object-bedside_glasses",
+  "object-kettle",
+  "object-front_door"
 ]) {
   if (!css.includes(token)) throw new Error(`Missing full-surface CSS token: ${token}`);
 }
 
 for (const token of [
   "Whole-Game Art Direction Pass",
+  "First-Person Scene Pass",
   "not only the opening screen",
   "full-surface consistency",
   "metacognitive premise"

@@ -1927,6 +1927,7 @@ body {
     radial-gradient(ellipse at 90% 22%, rgba(75, 107, 126, 0.32), transparent 34%),
     radial-gradient(ellipse at 68% 94%, rgba(112, 83, 61, 0.34), transparent 36%),
     linear-gradient(135deg, #111a29 0%, #223047 48%, #171827 100%);
+  background-color: #111a29;
   font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
   letter-spacing: 0.01em;
 }
@@ -3102,4 +3103,548 @@ body.reduced-motion .quick-memory-grid button {
 @media (max-width: 1100px) {
   .title-card { transform: none; }
   .modal-card, .ending-card { border-radius: 12px; }
+}
+
+/* First-person point-and-click scene conversion. The floor plan stays in the
+   side panel; the playable scene now reads as standing inside the room. */
+.first-person-stage {
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 50% 18%, rgba(255, 224, 142, 0.24), transparent 28%),
+    linear-gradient(180deg, #75624f 0 48%, #594b3e 48% 50%, #344139 50% 100%);
+}
+
+.first-person-stage .decor-layer,
+.first-person-stage .hotspot-layer,
+.first-person-stage .support-layer {
+  transform: none;
+  transform-origin: center;
+}
+
+.first-person-stage .decor-layer {
+  z-index: 1;
+  pointer-events: none;
+}
+
+.first-person-stage .support-layer {
+  z-index: 5;
+}
+
+.first-person-stage .hotspot-layer {
+  z-index: 8;
+}
+
+.first-person-scene,
+.first-person-scene > span,
+.scene-part {
+  position: absolute;
+  pointer-events: none;
+}
+
+.first-person-scene {
+  inset: 0;
+  overflow: hidden;
+  perspective: 920px;
+  background:
+    radial-gradient(ellipse at 48% 24%, rgba(255, 237, 176, 0.24), transparent 28%),
+    radial-gradient(ellipse at 18% 88%, rgba(47, 35, 43, 0.24), transparent 38%);
+}
+
+.scene-background,
+.scene-wall,
+.scene-back-wall,
+.scene-floor,
+.scene-floor-lines,
+.scene-midground,
+.scene-foreground,
+.scene-light,
+.scene-shadow {
+  inset: 0;
+}
+
+.scene-wall {
+  bottom: auto;
+  height: 61%;
+  background:
+    radial-gradient(ellipse at 62% 20%, rgba(255, 229, 146, 0.18), transparent 30%),
+    repeating-linear-gradient(90deg, rgba(55, 45, 38, 0.035) 0 1px, transparent 1px 36px),
+    linear-gradient(180deg, rgba(216, 164, 123, 0.72), rgba(124, 93, 78, 0.72));
+}
+
+.scene-back-wall {
+  left: 7%;
+  right: 7%;
+  top: 7%;
+  bottom: 39%;
+  border: 1px solid rgba(20, 22, 24, 0.13);
+  border-radius: 10px 10px 2px 2px;
+  background:
+    radial-gradient(ellipse at 55% 8%, rgba(255, 242, 197, 0.16), transparent 34%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.026) 0 1px, transparent 1px 7px);
+  box-shadow: inset 0 -26px 56px rgba(36, 25, 25, 0.14);
+}
+
+.scene-floor {
+  top: 51%;
+  height: 58%;
+  background:
+    linear-gradient(90deg, transparent 49%, rgba(30, 23, 22, 0.12) 50%, transparent 51%),
+    repeating-linear-gradient(90deg, rgba(30, 23, 22, 0.11) 0 1px, transparent 1px 68px),
+    linear-gradient(180deg, rgba(120, 99, 68, 0.36), rgba(53, 65, 55, 0.86));
+  transform: rotateX(56deg) translateY(-5%);
+  transform-origin: center top;
+  box-shadow: inset 0 36px 70px rgba(24, 18, 16, 0.16);
+}
+
+.scene-floor-lines {
+  top: 51%;
+  height: 54%;
+  background:
+    linear-gradient(92deg, transparent 9%, rgba(29, 24, 21, 0.14) 10%, transparent 18%),
+    linear-gradient(88deg, transparent 82%, rgba(29, 24, 21, 0.14) 83%, transparent 91%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 22px);
+  transform: rotateX(58deg);
+  transform-origin: center top;
+  opacity: 0.55;
+}
+
+.scene-light {
+  background:
+    radial-gradient(ellipse at 64% 17%, rgba(255, 229, 143, 0.42), transparent 24%),
+    linear-gradient(120deg, rgba(255, 221, 130, 0.18), transparent 45%);
+  mix-blend-mode: screen;
+}
+
+.scene-shadow {
+  background:
+    radial-gradient(ellipse at 4% 100%, rgba(5, 7, 12, 0.36), transparent 48%),
+    radial-gradient(ellipse at 100% 92%, rgba(5, 7, 12, 0.34), transparent 42%),
+    linear-gradient(180deg, transparent 58%, rgba(5, 7, 12, 0.15));
+}
+
+.scene-part {
+  z-index: 2;
+  border: 1px solid rgba(23, 23, 21, 0.16);
+  border-radius: 8px;
+  box-shadow:
+    inset 0 0 22px rgba(255, 248, 220, 0.12),
+    0 18px 30px rgba(5, 7, 12, 0.17);
+}
+
+.scene-window {
+  border-radius: 46% 46% 8px 8px;
+  background:
+    linear-gradient(90deg, transparent 48%, rgba(33, 47, 48, 0.28) 49% 51%, transparent 52%),
+    linear-gradient(0deg, transparent 48%, rgba(33, 47, 48, 0.18) 49% 51%, transparent 52%),
+    radial-gradient(ellipse at 52% 26%, rgba(255, 239, 178, 0.88), rgba(128, 169, 171, 0.52) 56%, rgba(50, 84, 95, 0.36));
+}
+
+.scene-window::after {
+  content: "";
+  position: absolute;
+  left: -30%;
+  top: 30%;
+  width: 170%;
+  height: 72%;
+  background: linear-gradient(105deg, rgba(255, 226, 137, 0.26), transparent 62%);
+  transform: skewX(-14deg);
+}
+
+.scene-table,
+.scene-counter {
+  border-radius: 12px 12px 22px 22px;
+  background:
+    radial-gradient(ellipse at 18% 0%, rgba(255,255,245,0.18), transparent 40%),
+    linear-gradient(180deg, rgba(176, 132, 88, 0.95), rgba(94, 62, 45, 0.92));
+  transform: perspective(760px) rotateX(9deg);
+  transform-origin: center top;
+}
+
+.scene-bed,
+.scene-couch {
+  border-radius: 28px 28px 12px 12px;
+  background:
+    linear-gradient(90deg, rgba(215, 137, 116, 0.44), rgba(102, 151, 154, 0.34), rgba(232, 201, 108, 0.42), rgba(91, 128, 78, 0.38)),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 15px);
+}
+
+.scene-door {
+  border-radius: 6px 6px 2px 2px;
+}
+
+.scene-object {
+  z-index: 4;
+  overflow: visible;
+  border: 0;
+  box-shadow: none;
+  filter: drop-shadow(0 12px 12px rgba(5, 7, 12, 0.28));
+}
+
+.scene-object::before,
+.scene-object::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.scene-object::before {
+  inset: 0;
+  border-radius: inherit;
+}
+
+.scene-object::after {
+  left: 8%;
+  right: 8%;
+  bottom: -16%;
+  height: 24%;
+  border-radius: 999px;
+  background: rgba(8, 9, 12, 0.24);
+  filter: blur(5px);
+}
+
+.scene-bedroom .scene-wall {
+  background:
+    radial-gradient(circle at 16% 25%, rgba(199, 102, 121, 0.24) 0 3px, transparent 4px),
+    radial-gradient(circle at 34% 40%, rgba(240, 200, 75, 0.20) 0 3px, transparent 4px),
+    radial-gradient(circle at 80% 28%, rgba(103, 169, 189, 0.18) 0 4px, transparent 5px),
+    linear-gradient(180deg, #9e765f, #6c5148);
+}
+
+.scene-bathroom .scene-wall {
+  background:
+    repeating-linear-gradient(0deg, rgba(32, 69, 82, 0.12) 0 1px, transparent 1px 28px),
+    repeating-linear-gradient(90deg, rgba(32, 69, 82, 0.10) 0 1px, transparent 1px 30px),
+    linear-gradient(180deg, #b9d9dc, #7fa8b1);
+}
+
+.scene-kitchen .scene-wall {
+  background:
+    radial-gradient(ellipse at 70% 18%, rgba(255, 226, 142, 0.28), transparent 30%),
+    linear-gradient(180deg, #bd8354, #74513f);
+}
+
+.scene-living .scene-wall {
+  background:
+    radial-gradient(ellipse at 28% 24%, rgba(199, 102, 121, 0.22), transparent 32%),
+    radial-gradient(ellipse at 80% 20%, rgba(240, 200, 75, 0.17), transparent 30%),
+    linear-gradient(180deg, #826270, #4d3b58);
+}
+
+.scene-hallway .scene-wall {
+  background:
+    linear-gradient(90deg, rgba(43, 53, 70, 0.78), rgba(82, 65, 74, 0.84) 47%, rgba(37, 48, 64, 0.92));
+}
+
+.bedroom-mirror,
+.bathroom-mirror {
+  background:
+    radial-gradient(ellipse at 52% 38%, rgba(246, 255, 255, 0.78), rgba(118, 151, 162, 0.42) 60%, rgba(42, 52, 63, 0.30)),
+    linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+}
+
+.bedroom-poster,
+.living-art {
+  background:
+    radial-gradient(circle at 65% 32%, rgba(238, 207, 112, 0.86) 0 16%, transparent 17%),
+    linear-gradient(135deg, rgba(43, 35, 53, 0.92), rgba(91, 64, 86, 0.82));
+}
+
+.bedroom-shelf,
+.kitchen-shelf,
+.living-shelf,
+.hallway-hooks {
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(85, 61, 42, 0.85), rgba(42, 33, 28, 0.84));
+}
+
+.quilt-foreground {
+  z-index: 3;
+  transform: perspective(720px) rotateX(16deg);
+}
+
+.bathroom-tile,
+.kitchen-backsplash {
+  background:
+    repeating-linear-gradient(0deg, rgba(32, 69, 82, 0.14) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(90deg, rgba(32, 69, 82, 0.12) 0 1px, transparent 1px 24px),
+    rgba(231, 224, 199, 0.28);
+}
+
+.bathroom-light {
+  background: radial-gradient(ellipse at 50% 50%, rgba(255,255,235,0.94), rgba(255,219,144,0.28) 70%, transparent 71%);
+  box-shadow: 0 0 35px rgba(255, 242, 190, 0.45);
+}
+
+.bathroom-counter,
+.kitchen-counter,
+.coffee-table {
+  z-index: 3;
+}
+
+.bathroom-sink {
+  border-radius: 0 0 50% 50%;
+  background:
+    radial-gradient(ellipse at 50% 22%, rgba(250,255,255,0.72), rgba(115, 154, 165, 0.28) 58%, transparent 59%);
+}
+
+.bathroom-cabinet {
+  background:
+    repeating-linear-gradient(90deg, rgba(36, 47, 47, 0.12) 0 1px, transparent 1px 35px),
+    rgba(245, 238, 221, 0.56);
+}
+
+.bathroom-towel {
+  background: repeating-linear-gradient(90deg, rgba(220, 153, 127, 0.82) 0 13px, rgba(253, 237, 220, 0.56) 13px 24px);
+}
+
+.kitchen-calendar,
+.hallway-note-wall {
+  background:
+    radial-gradient(circle at 58% 46%, transparent 0 18%, rgba(166, 65, 67, 0.42) 19% 23%, transparent 24%),
+    repeating-linear-gradient(0deg, rgba(48, 39, 31, 0.08) 0 1px, transparent 1px 10px),
+    rgba(255, 246, 219, 0.82);
+}
+
+.living-couch {
+  background:
+    radial-gradient(ellipse at 40% 100%, rgba(10, 12, 16, 0.22), transparent 52%),
+    linear-gradient(180deg, rgba(90, 110, 78, 0.94), rgba(54, 67, 52, 0.96));
+}
+
+.coffee-table {
+  background:
+    linear-gradient(180deg, rgba(182, 132, 86, 0.90), rgba(91, 62, 48, 0.95));
+}
+
+.hallway-door {
+  background:
+    radial-gradient(ellipse at 86% 44%, rgba(255, 225, 142, 0.12), transparent 26%),
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(255,255,255,0.035) 34px 36px),
+    linear-gradient(90deg, rgba(70, 47, 37, 0.96), rgba(105, 71, 50, 0.92));
+  box-shadow: inset 0 0 0 4px rgba(26, 20, 18, 0.18), 0 0 38px rgba(255, 223, 148, 0.16);
+}
+
+.hallway-door-light {
+  border: 0;
+  background: linear-gradient(90deg, rgba(255, 236, 177, 0.82), rgba(255, 236, 177, 0.05));
+  filter: blur(1px);
+}
+
+.hallway-runner {
+  border-radius: 50% 50% 6px 6px;
+  background:
+    linear-gradient(90deg, transparent 18%, rgba(183, 109, 105, 0.58) 19% 26%, transparent 27% 73%, rgba(183, 109, 105, 0.52) 74% 81%, transparent 82%),
+    linear-gradient(180deg, rgba(55, 68, 83, 0.56), rgba(30, 38, 53, 0.84));
+  transform: perspective(660px) rotateX(52deg);
+  transform-origin: center top;
+}
+
+.object-bedside_glasses::before {
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 32% 52%, transparent 0 20%, rgba(250,255,255,0.62) 21% 48%, rgba(42, 40, 48, 0.86) 49% 55%, transparent 56%),
+    radial-gradient(circle at 68% 52%, transparent 0 20%, rgba(250,255,255,0.62) 21% 48%, rgba(42, 40, 48, 0.86) 49% 55%, transparent 56%),
+    linear-gradient(90deg, transparent 43%, rgba(42, 40, 48, 0.86) 44% 56%, transparent 57%);
+}
+
+.object-unread_texts::before,
+.object-phone::before,
+.object-voice_memo::before,
+.object-calendar_alert::before {
+  border-radius: 12px;
+  background:
+    radial-gradient(circle at 76% 24%, rgba(103, 169, 189, 0.86) 0 8%, transparent 9%),
+    linear-gradient(145deg, #202332, #4d425f);
+}
+
+.object-bedroom_note::before,
+.object-postcard::before,
+.object-appointment_card::before,
+.object-hall_note::before {
+  border-radius: 4px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 9px, rgba(47,51,44,0.09) 9px 10px),
+    linear-gradient(135deg, rgba(255, 243, 163, 0.94), rgba(233, 199, 111, 0.86));
+  transform: rotate(-4deg);
+}
+
+.object-laptop::before,
+.object-creative_project::before {
+  border-radius: 7px;
+  background:
+    linear-gradient(0deg, rgba(255,255,255,0.25) 0 14%, transparent 15%),
+    radial-gradient(circle at 76% 24%, rgba(103, 169, 189, 0.60) 0 8%, transparent 9%),
+    linear-gradient(145deg, #272a34, #566072);
+}
+
+.object-pill_organizer::before {
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, rgba(255, 249, 230, 0.95) 0 24%, rgba(126, 174, 166, 0.72) 24% 49%, rgba(233, 207, 111, 0.76) 49% 74%, rgba(201, 103, 121, 0.65) 74%),
+    repeating-linear-gradient(90deg, rgba(47,51,44,0.18) 0 1px, transparent 1px 24%);
+}
+
+.object-bathroom_cabinet::before,
+.object-medication_bottle::before {
+  border-radius: 8px 8px 4px 4px;
+  background:
+    linear-gradient(0deg, rgba(255,255,255,0.25) 42%, transparent 43%),
+    linear-gradient(180deg, rgba(255, 249, 235, 0.92), rgba(132, 165, 162, 0.68));
+}
+
+.object-mug::before {
+  border-radius: 0 0 45% 45%;
+  background:
+    radial-gradient(circle at 93% 40%, transparent 0 18%, rgba(255, 244, 218, 0.76) 19% 31%, transparent 32%),
+    linear-gradient(180deg, rgba(255, 236, 200, 0.94), rgba(210, 126, 95, 0.84));
+}
+
+.object-tea_tin::before {
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 70% 28%, rgba(240, 200, 75, 0.88) 0 12%, transparent 13%),
+    linear-gradient(145deg, rgba(59, 99, 76, 0.95), rgba(39, 67, 55, 0.92));
+}
+
+.object-kettle::before {
+  border-radius: 42% 42% 16px 16px;
+  background:
+    radial-gradient(circle at 88% 56%, transparent 0 16%, rgba(255, 249, 230, 0.78) 17% 30%, transparent 31%),
+    radial-gradient(circle at 32% 18%, rgba(255, 249, 230, 0.74), transparent 18%),
+    linear-gradient(145deg, rgba(221, 226, 212, 0.96), rgba(105, 130, 130, 0.88));
+}
+
+.object-kettle::after {
+  left: 12%;
+  top: -70%;
+  width: 80%;
+  height: 62%;
+  background:
+    radial-gradient(ellipse at 30% 70%, transparent 36%, rgba(255, 248, 226, 0.58) 37% 45%, transparent 46%),
+    radial-gradient(ellipse at 62% 42%, transparent 34%, rgba(255, 248, 226, 0.52) 35% 44%, transparent 45%);
+  filter: blur(1px);
+}
+
+.object-plant_shelf::before {
+  background:
+    radial-gradient(circle at 25% 20%, rgba(72, 117, 73, 0.86) 0 16%, transparent 17%),
+    radial-gradient(circle at 55% 8%, rgba(91, 139, 79, 0.82) 0 18%, transparent 19%),
+    radial-gradient(circle at 72% 32%, rgba(72, 117, 73, 0.78) 0 15%, transparent 16%),
+    linear-gradient(180deg, transparent 0 50%, rgba(160, 93, 63, 0.92) 51%);
+}
+
+.object-photo_frame::before {
+  border-radius: 8px;
+  border: 4px solid rgba(66, 45, 42, 0.82);
+  background:
+    radial-gradient(circle at 55% 32%, rgba(239, 204, 120, 0.76), transparent 18%),
+    linear-gradient(145deg, rgba(91, 143, 163, 0.82), rgba(216, 165, 139, 0.68));
+  transform: rotate(-5deg);
+}
+
+.object-wallet::before {
+  border-radius: 8px;
+  background: linear-gradient(145deg, rgba(82, 48, 35, 0.96), rgba(145, 91, 58, 0.92));
+}
+
+.object-playlist::before {
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 25% 50%, transparent 0 18%, rgba(245,245,236,0.88) 19% 36%, transparent 37%),
+    radial-gradient(circle at 76% 50%, transparent 0 18%, rgba(245,245,236,0.88) 19% 36%, transparent 37%),
+    linear-gradient(90deg, rgba(245,245,236,0.82), transparent 45% 55%, rgba(245,245,236,0.82));
+}
+
+.object-keys::before {
+  background:
+    radial-gradient(circle at 22% 42%, transparent 0 12%, rgba(239, 209, 111, 0.92) 13% 24%, transparent 25%),
+    linear-gradient(90deg, rgba(239, 209, 111, 0.96) 30%, transparent 31% 38%, rgba(239, 209, 111, 0.92) 39% 55%, transparent 56%);
+}
+
+.object-transit_card::before {
+  border-radius: 6px;
+  background:
+    linear-gradient(90deg, rgba(103, 169, 189, 0.94), rgba(255, 246, 214, 0.82)),
+    repeating-linear-gradient(0deg, transparent 0 7px, rgba(47,51,44,0.13) 7px 8px);
+}
+
+.object-sneakers::before {
+  border-radius: 999px;
+  background:
+    radial-gradient(ellipse at 30% 60%, rgba(255, 248, 232, 0.92) 0 24%, transparent 25%),
+    radial-gradient(ellipse at 70% 60%, rgba(255, 248, 232, 0.82) 0 24%, transparent 25%),
+    linear-gradient(180deg, transparent 0 50%, rgba(47, 51, 44, 0.42) 51%);
+}
+
+.object-tote_bag::before {
+  border-radius: 10px 10px 22px 22px;
+  background:
+    radial-gradient(ellipse at 50% -5%, transparent 0 26%, rgba(50, 43, 38, 0.32) 27% 34%, transparent 35%),
+    linear-gradient(145deg, rgba(255, 247, 225, 0.88), rgba(216, 165, 139, 0.62));
+}
+
+.object-front_door::before {
+  border-radius: 4px;
+  background:
+    radial-gradient(circle at 80% 52%, rgba(239, 209, 111, 0.92) 0 5%, transparent 6%),
+    linear-gradient(90deg, rgba(75, 45, 35, 0.86), rgba(126, 75, 49, 0.92));
+}
+
+.first-person-stage .hotspot {
+  width: 20px;
+  min-width: 20px;
+  height: 20px;
+  min-height: 20px;
+  border-width: 2px;
+  border-color: rgba(255, 252, 226, 0.98);
+  background:
+    radial-gradient(circle, rgba(255, 235, 157, 0.96) 0 26%, rgba(224, 147, 77, 0.92) 27% 54%, rgba(89, 61, 44, 0.72) 55%);
+}
+
+.first-person-stage .hotspot::after {
+  content: "";
+  position: absolute;
+  inset: -17px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 232, 154, 0.22);
+  box-shadow: 0 0 30px rgba(255, 221, 124, 0.28);
+  opacity: 0;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.first-person-stage .hotspot:hover::after,
+.first-person-stage .hotspot:focus-visible::after {
+  opacity: 1;
+  transform: scale(1.12);
+}
+
+.first-person-stage .hotspot:hover,
+.first-person-stage .hotspot:focus-visible {
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+body.high-contrast .scene-object {
+  filter: drop-shadow(0 0 0 #000) drop-shadow(0 8px 0 rgba(0,0,0,0.35));
+}
+
+body.reduced-motion .first-person-scene *,
+body.reduced-motion .first-person-stage .hotspot::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+@media (max-width: 760px) {
+  .first-person-stage {
+    min-height: 390px;
+    aspect-ratio: 1.05;
+  }
+
+  .scene-back-wall {
+    left: 4%;
+    right: 4%;
+  }
+
+  .first-person-stage .hotspot span {
+    max-width: 148px;
+  }
 }
